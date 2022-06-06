@@ -11,7 +11,7 @@ const userSchema = new Schema({
       emailId : string,
       age: Number,
       gender : 
-            type : string,
+            type:  string,
             enum: ["male", "female", "LGBT"]
   }  
  

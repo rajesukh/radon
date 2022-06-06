@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 
 useNewUrlParser:  true 
-)
+
 .then ( () => console.log("mongoDb is connected"))
 .catch ( err => console.log(err))
 
