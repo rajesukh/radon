@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const route = require('./routes/route.js');
+const middleware=require("./middlewares/commonMiddlewares")
 const { default: mongoose } = require('mongoose');
 const app = express();
 
@@ -8,7 +9,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
-mongoose.connect("mongodb+srv://rajesukh2668:E5sB52YEdmRqpQTu@cluster0.rzotr.mongodb.net/rajesukh2688-DB?retryWrites=true&w=majority", {
+mongoose.connect("mongodb+srv://rajesukh2668-DB:Vh6Hmk1jO9ibpzIb@cluster0.akxjp.mongodb.net/test?retryWrites=true&w=majority", {
     useNewUrlParser: true
 })
 .then( () => console.log("MongoDb is connected"))
@@ -20,6 +21,9 @@ app.use (
         next();
   }
   );
+
+  app.use(middleware.timeUrlmiddleWare); //for  Time and URL information we use global middleware  
+  
 
 app.use('/', route);
 
